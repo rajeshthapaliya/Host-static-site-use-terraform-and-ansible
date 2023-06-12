@@ -1,0 +1,12 @@
+- name: install apache
+  apt:
+      name: 
+        - apache2
+      update_cache: yes
+      state: latest
+
+- name: template
+  template:
+    src: "main.j2"
+    dest: /var/www/html/index.html
+  notify: restart apache2  
